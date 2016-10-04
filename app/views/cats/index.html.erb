@@ -1,10 +1,20 @@
+<h1> CATS!!!!!! </h1>
+
+<img src="https://i.ytimg.com/vi/IaVIRqHBM3k/hqdefault.jpg" />
+
+
 <ul>
 <% @cats.each do |cat|%>
 <li>
-  <%= cat.name %>
+  <strong><%= cat.name %></strong>
   <br />
   <%= link_to "Get Details", "/cats/#{cat.id}"%>
 </li>
 
 <% end %>
 </ul>
+
+<%= link_to "Create your own cat!!!", "/cats/new" %>
+
+<br/>
+<img src="http://cryptomining-blog.com/wp-content/uploads/2014/02/nyancoin-scrypt-crypto.gif" />

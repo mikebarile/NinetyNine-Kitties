@@ -1,3 +1,5 @@
+<h1> WHAT A GREAT CAT!!! </h1>
+
 <table>
   <tr>
     <th> Name: </th>
@@ -24,3 +26,8 @@
     <td><%= @cat.description %></td>
   </tr>
 </table>
+<br/>
+<%= link_to "Edit the cat!", "/cats/#{@cat.id}/edit" %>
+<br/>
+<br/>
+<%= link_to "I don't like this cat, get me out of here!", "/cats" %>

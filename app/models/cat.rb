@@ -8,4 +8,8 @@ class Cat < ActiveRecord::Base
   def age
     (DateTime.now.mjd - birth_date.mjd) / 365
   end
+
+  def persisted?
+    !id.nil?
+  end
 end

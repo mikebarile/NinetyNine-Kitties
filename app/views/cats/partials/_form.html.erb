@@ -1,0 +1,48 @@
+<form method = "<%= method %>" action = "<%= url %>">
+  <% if hidden == true %>
+    <input type='hidden' name='_method' value='PATCH'>
+  <% end %>
+  <label for="cat-name">Name: </label>
+
+  <input name="cat[name]" id="cat-name" type="text" value= "<%= cat.name %>" />
+
+  <br />
+  <br />
+  <label for="cat-sex">Sex: </label>
+
+  <label>Male</label>
+  <input name="cat[sex]" id ="cat-sex" type="radio" value="M" <%= "checked" if cat.sex == "M" %> />
+  <label>Female</label>
+  <input name="cat[sex]" id ="cat-sex" type="radio" value="F" <%= "checked" if cat.sex == "F" %> />
+
+  <br />
+  <br />
+
+  <label for="cat-color">Color: </label>
+  <select name = "cat[color]" id = "cat-color">
+    <option value = ""></option>
+    <option value = "black" <%= "selected" if cat.color == "black" %> >Black</option>
+    <option value = "white" <%= "selected" if cat.color == "white" %> >White</option>
+    <option value = "orange" <%= "selected" if cat.color == "orange" %> >Orange</option>
+    <option value = "cappucino" <%= "selected" if cat.color == "cappucino" %>>Cappucino</option>
+    <option value = "blue" <%= "selected" if cat.color == "blue" %> >Blue</option>
+  </select>
+
+  <br />
+  <br />
+
+  <label for="cat-birth-date">Birthday: </label>
+  <input name="cat[birth_date]" id="cat-birth-date" type="date" value = "<%= cat.birth_date %>" />
+
+  <br />
+  <br />
+
+  <label for="cat-description">Description: </label>
+  <textarea name="cat[description]" id="cat-description"> <%= cat.description %></textarea>
+
+  <br />
+  <br />
+
+  <button>Submit!</button>
+
+</form>
