@@ -12,4 +12,10 @@ class Cat < ActiveRecord::Base
   def persisted?
     !id.nil?
   end
+
+  has_many :cat_rental_requests,
+  primary_key: :id,
+  foreign_key: :cat_id,
+  class_name: :CatRentalRequest,
+  dependent: :destroy
 end
