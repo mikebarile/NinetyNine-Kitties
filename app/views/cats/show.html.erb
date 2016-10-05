@@ -64,3 +64,11 @@
 <br/>
 
 <%= link_to "I don't like this cat, get me out of here!", "/cats" %>
+
+<br/>
+<br/>
+
+<form action = "/cats/<%=@cat.id%>" method = "post">
+  <input type='hidden' name='_method' value='DELETE'>
+  <button> I hate this kitty! DESTROY IT!!!!!!!! </button>
+</form>

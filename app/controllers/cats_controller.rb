@@ -1,7 +1,7 @@
 class CatsController < ApplicationController
 
   def index
-    @cats = Cat.all
+    @cats = Cat.all.order(:name)
     render :index
   end
 
@@ -23,6 +23,11 @@ class CatsController < ApplicationController
     else
       render json: cat.errors.full_messages
     end
+  end
+
+  def destroy
+    Cat.find(params[:id]).destroy
+    redirect_to "/cats"
   end
 
   def edit

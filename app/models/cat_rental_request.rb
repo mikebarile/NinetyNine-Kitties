@@ -17,6 +17,25 @@ class CatRentalRequest < ActiveRecord::Base
     end
   end
 
+  def overlapping_pending_requests
+    overlapping_requests.where("status = 'PENDING'")
+  end
+
+  def approve!
+    if status == "PENDING"
+      transaction do
+        update(status: "APPROVED")
+        overlapping_pending_requests.each do |bad_request|
+          bad_request.deny!
+        end
+      end
+    end
+  end
+
+  def deny!
+    update(status: "DENIED")
+  end
+
   belongs_to :cat,
   primary_key: :id,
   foreign_key: :cat_id,
