@@ -41,6 +41,8 @@
     <th> Start date </th>
     <th> End date </th>
     <th> Status </th>
+    <th> Approve? </th>
+    <th> Deny? </th>
   </tr>
 
   <% @kitty_requests.each do |kitty_request| %>
@@ -48,6 +50,14 @@
     <td><%= kitty_request.start_date %></td>
     <td><%= kitty_request.end_date %></td>
     <td><%= kitty_request.status %></td>
+    <% if kitty_request.status == "PENDING" %>
+      <td><%= link_to "Approve", "/cat_rental_requests/#{kitty_request.id}/approve" %> </td>
+      <td><%= link_to "Deny", "/cat_rental_requests/#{kitty_request.id}/deny" %> </td>
+    <% else %>
+      <td>N/A </td>
+      <td>N/A </td>
+    <% end %>
+
   </tr>
   <% end %>
 </table>

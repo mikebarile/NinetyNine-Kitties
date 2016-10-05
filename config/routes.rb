@@ -55,5 +55,8 @@ Rails.application.routes.draw do
   #   end
 
   resources :cats
+  get '/cat_rental_requests/:id/approve', to: 'cat_rental_requests#approve'
+  get '/cat_rental_requests/:id/deny', to: 'cat_rental_requests#deny'
+
   resources :cat_rental_requests
 end
