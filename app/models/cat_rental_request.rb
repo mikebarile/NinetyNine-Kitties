@@ -12,7 +12,7 @@ class CatRentalRequest < ActiveRecord::Base
   end
 
   def overlapping_approved_requests
-    if status == "APPROVED" && !overlapping_requests.where("status = 'APPROVED'").empty?
+    if !overlapping_requests.where("status = 'APPROVED'").empty?
       errors[:base] << "Can't have overlapping approved requests!"
     end
   end
